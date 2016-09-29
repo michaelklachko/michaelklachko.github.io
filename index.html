@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -41,7 +41,7 @@
 
 <h2>Extracting High Level Features</h2>
 
-<p>Until about 2012, the lack of processing power made it difficult to extract good features from images, because this task requires large neural networks. In turn, large networks require a lot of input data to train successfully. That’s why when researchers at Stanford partnered with Google engineers: Google has lots of processing power, and lots of data. As a result, Andrew Ng’s team at Standford was able to train a very large network, using a very large dataset of images. One particular goal of their project was to find out if it was possible to extract very high level features.
+<p>Until about 2012, the lack of processing power made it difficult to extract good features from images, because this task requires large neural networks. In turn, large networks require a lot of input data to train successfully. That’s why in 2012 researchers at Stanford partnered with Google engineers: Google has lots of processing power, and lots of data. As a result, Andrew Ng’s team at Standford was able to train a very large network, using a very large dataset of images. One particular goal of their project was to find out if it was possible to extract very high level features.
 </p>
 
 <p>A typical image can be described in a hierarchical manner: low level features, such as dot patterns, lines, curves, or corners of different orientation, are combined into more complex shapes, such as circles, squares, or textures, and these shapes in turn can be combined into even higher level features, such as basic car shapes, faces, houses, etc. Previously, only low level features could be extracted from images, however, it was known from neuroscience that individual neurons in a human brain could “learn” to respond strongly when a particular complex image is seen. Therefore, if a particular node in the middle layer of an autoencoder could respond with a strong activation when a network was shown a face, it would mean that the network is capable of extracting such high level features.
