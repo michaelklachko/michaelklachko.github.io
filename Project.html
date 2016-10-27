@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project</title>
+
+    <style>
+        div { text-align: center; }
+    </style>
+</head>
+
+
+<body>
+
+<h3 style="text-align: center">Project Proposal</h1>
+<h3 style="text-align: center">Michael Klachko & Samuel Dowell</h3>
+<h1 style="text-align: center">Parallel Neural Network Implementation for Image Recognition</h1>
+
+<p>Neural Network algorithms have gained popularity recently due to success on various pattern recognition tasks, especially image classification and speech recognition.</p>
+
+<br>
+
+<p>The heart of a typical neural network code is dense matrix-matrix or matrix-vector multiplication, which is known to be an “embarrassingly parallel” task. While modern neural networks are usually trained on GPUs, which can provide 5-50 speed up, in this project we would like to explore the possibility to parallelize the code on CPUs, especially considering that modern CPUs can have many cores (recent Intel Xeon CPUs have as many as 22 hardware cores (44 software cores enabled by hyperthreading). Another interesting feature of modern CPUs is vector processing (AVX, AVX2, and AVX512 ISA extensions). </p>
+
+<p>Performing computation on CPU has a major benefit over GPU based computation – there’s no need to transfer data back and forth between CPU and GPU, to keep GPU busy, (which involves moving data between main memory, GPU and GPU memory). Also, CPU typically has access to larger amount of RAM than what’s available on most GPU cards, and the typical CPU operating frequencies are higher than GPU frequencies. </p>
+
+<p>More specifically, we plan to implement a well known benchmark: classification of handwritten digits, known as MNIST, using a Multi-Layer Perceptron (MLP) neural network model. The goal of our project is to compare different ways to parallelize the algorithm: </p>
+
+<p>1.	Using MPI, and testing performance scaling on Comet (using multiple cores, multiple CPUs on a single machine, as well as multiple CPUs on multiple machines) 
+2.	Using Cilk Plus, to test scaling on a single CPU (CPUs with 12 cores are avaialble on Comet)
+2a.  Potentially trying OpenMP instead of Cilk Plus, if unable to achieve satisfactory speedup with Cilk
+3.	Using AVX2 Instructions, available on modern Xeon CPUs (also on Comet).</p>
+
+<p>The last task has not been discussed in class, but it is a promising way to utilize CPUs more efficiently, because AVX instructions allow us to pack multiple values into 256 bit wide registers, and perform dot product operation on the entire registers at once. Considering that neural network do not require high precision (16 bit weight values precision is more than enough), we can potentially calculate 16 dot product operations in parallel on a single core, and perhaps even double that amount with hyperthreading.  </p>
+<p>Finally, we can run an existing GPU (CUDA) implementations of the same network executing the same MNIST benchmark, and compare/analyze the performance differences.</p>
+
+</body>
+</html>
